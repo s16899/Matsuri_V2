@@ -7,7 +7,7 @@ import webserver
 
 load_dotenv()
 
-_24h = True
+_24h = False
 
 USERNAME = "User"
 AI_NAME = "AI"
