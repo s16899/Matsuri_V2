@@ -7,15 +7,21 @@ import webserver
 
 load_dotenv()
 
+_24h = True
+
+USERNAME = "User"
+AI_NAME = "AI"
+
 API_KEY = os.getenv('API_KEY')
-FILENAME = "GF_Conversation.txt"
+FILENAME = "your-conversation-name.txt"
+CONTEXT = "your-context-name"
 
 intents = discord.Intents.default()
 intents.message_content = True  # Required to read the content of messages in DMs
 bot = discord.Client(intents=intents)
 
 # Load the context from the file
-with open("contexts/cute_ai.txt", "r") as f:
+with open(f"contexts/{CONTEXT}.txt", "r") as f:
     context = f.read()
 
 # Function to save conversation history to a file
@@ -81,14 +87,18 @@ async def on_message(message):
             assistant_message = data['choices'][0]['message']['content']
 
             # Save the conversation (both user input and AI response) to the file
-            save_conversation_to_file(f"User: {user_input}")
-            save_conversation_to_file(f"AI: {assistant_message}")
+            save_conversation_to_file(f"{USERNAME}: {user_input}")
+            save_conversation_to_file(f"{AI_NAME}: {assistant_message}")
 
             # Reply to the user in the DM
             await message.channel.send(assistant_message)
         else:
             await message.channel.send(f"Error: {response.status_code}, {response.text}")
 
-webserver.keep_alive()
+if _24h == True:
+    import webserver
+    webserver.keep_alive()
+else:
+    pass
 # Run the bot
 bot.run(os.getenv("DISCORD_TOKEN"))
