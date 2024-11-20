@@ -4,7 +4,12 @@ This bot works by using the API from openrouter. Nothing much to say, but if you
 - [ ] Video :
      Not available yet :sob: :skull:
 
-## Prequesites
+## Prerequisites
+
+1. Flask
+2. Discord
+3. Python-dotenv
+4. Requests
 
 ### Openrouter - API
 
