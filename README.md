@@ -1,8 +1,8 @@
 # Preview
 This bot works by using the API from openrouter. Nothing much to say, but if you want to browse through any other parts or skip some parts, you can do so by clicking the section button on the top left of this readme!
 
-- [ ] Video :
-     Not available yet :sob: :skull:
+- [x] Video :
+     ![Video](https://www.youtube.com/watch?v=ZOlI1VSEYiA)
 
 ## Prerequisites
 
